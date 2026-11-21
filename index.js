@@ -13,7 +13,24 @@ const ticketList = document.getElementById('ticketList');
 function renderTickets() {
     ticketList.innerHTML = '';
 
+    if (tickets.length === 0) {
+        const empty = document.createElement('li');
+        empty.className = 'empty-message';
+        empty.textContent = 'Заявок пока нет';
+        ticketList.append(empty);
+        return;
+    }
+
+    let visibleCount = 0;
+
     tickets.forEach((ticket, index) => {
+
+        if (onlyOpenCheckbox.checked && ticket.done !== false) {
+            return;
+        }
+
+        visibleCount++;
+
         const item = document.createElement('li');
 
         const title = document.createElement('span');
@@ -53,9 +70,16 @@ function renderTickets() {
         item.append(title, info, status, actions);
         ticketList.append(item);
     });
+
+    if (visibleCount === 0) {
+        const empty = document.createElement('li');
+        empty.className = 'empty-message';
+        empty.textContent = 'Открытых заявок нет';
+        ticketList.append(empty);
+    }
 }
 
-renderTickets();
+renderTickets()
 
 addButton.addEventListener('click', () => {
     const title = titleInput.value.trim();
