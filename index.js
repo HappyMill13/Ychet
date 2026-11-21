@@ -33,11 +33,10 @@ function renderTickets() {
         if (!ticket.done) {
             const doneButton = document.createElement('button');
             doneButton.className = 'btn-done';
-            doneButton.textContent = 'Отметить выполненной';
+            doneButton.textContent = 'Выполнить';
             doneButton.addEventListener('click', () => {
                 ticket.done = true;
                 renderTickets();
-                message.textContent = `Заявка «${ticket.title}» выполнена`;
             });
             actions.append(doneButton);
         }
@@ -48,9 +47,7 @@ function renderTickets() {
         removeButton.addEventListener('click', () => {
             tickets.splice(index, 1);
             renderTickets();
-            message.textContent = `Заявка «${ticket.title}» удалена`;
-        })
-
+        });
         actions.append(removeButton);
 
         item.append(title, info, status, actions);
@@ -58,22 +55,24 @@ function renderTickets() {
     });
 }
 
+renderTickets();
+
 addButton.addEventListener('click', () => {
     const title = titleInput.value.trim();
     const room = roomInput.value.trim();
     const category = categorySelect.value;
 
-    const titleEmpty    = title.trim() === '';
-    const roomEmpty     = room.trim() === '';
-    const categoryEmpty = category === '';  
+    const titleEmpty = title.trim() === '';
+    const roomEmpty = room.trim() === '';
+    const categoryEmpty = category === '';
 
     if (titleEmpty || roomEmpty || categoryEmpty) {
         message.textContent = 'Заполните все поля и выберите категорию';
-        return;                       
+        return;
     }
-    
+
     const newTicket = {
-        title: title.trim(), 
+        title: title.trim(),
         room: room.trim(),
         category: category,
         done: false
