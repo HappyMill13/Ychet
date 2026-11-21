@@ -57,3 +57,15 @@ function renderTickets() {
         ticketList.append(item);
     });
 }
+
+addButton.addEventListener('click', () => {
+    const title    = titleInput.value.trim();
+    const room     = roomInput.value.trim();
+    const category = categorySelect.value;
+
+    if (!title || !room || !category) {
+        message.textContent = 'Заполните все поля и выберите категорию';
+        return;
+    }
+})
+
