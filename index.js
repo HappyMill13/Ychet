@@ -63,19 +63,29 @@ addButton.addEventListener('click', () => {
     const room = roomInput.value.trim();
     const category = categorySelect.value;
 
+    const titleEmpty    = title.trim() === '';
+    const roomEmpty     = room.trim() === '';
+    const categoryEmpty = category === '';  
+
     if (!title || !room || !category) {
         message.textContent = 'Заполните все поля и выберите категорию';
         return;
     }
 
-    tickets.push({ title, room, category, done: false });
+    const newTicket = {
+        title: title.trim(), 
+        room: room.trim(),
+        category: category,
+        done: false
+    };
+
+    tickets.push(newTicket);
 
     titleInput.value = '';
     roomInput.value = '';
     categorySelect.value = '';
-    message.textContent = `Заявка «${title}» добавлена`;
+
+    message.textContent = `Заявка «${newTicket.title}» добавлена`;
 
     renderTickets();
 });
-
-renderTickets();
