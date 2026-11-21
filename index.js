@@ -1,7 +1,7 @@
 const tickets = [
-    { title: 'Проектор не включается', room: '203', category: 'Оборудование', done: false },
-    { title: 'Не закрывается окно', room: '105', category: 'Аудитория', done: false },
-    { title: 'В коридоре не горит свет', room: 'Коридор, 2-й этаж', category: 'Другое', done: true }
+    { title: 'Проектор не включается ', room: '203 ', category: 'Оборудование ', done: false },
+    { title: 'Не закрывается окно ', room: '105 ', category: 'Аудитория ', done: false },
+    { title: 'В коридоре не горит свет ', room: 'Коридор, 2-й этаж ', category: 'Другое ', done: true }
 ];
 const titleInput = document.getElementById('titleInput');
 const roomInput = document.getElementById('roomInput');
@@ -25,7 +25,7 @@ function renderTickets() {
 
         const status = document.createElement('span');
         status.className = 'ticket-status ' + (ticket.done ? 'status-done' : 'status-open');
-        status.textContent = ticket.done ? 'Выполнена' : 'Не выполнена';
+        status.textContent = ticket.done ? 'Выполнена' : 'Открыта';
 
         const actions = document.createElement('div');
         actions.className = 'ticket-actions';
