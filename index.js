@@ -67,11 +67,11 @@ addButton.addEventListener('click', () => {
     const roomEmpty     = room.trim() === '';
     const categoryEmpty = category === '';  
 
-    if (!title || !room || !category) {
+    if (titleEmpty || roomEmpty || categoryEmpty) {
         message.textContent = 'Заполните все поля и выберите категорию';
-        return;
+        return;                       
     }
-
+    
     const newTicket = {
         title: title.trim(), 
         room: room.trim(),
