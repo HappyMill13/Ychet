@@ -7,6 +7,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="index.js" defer></script>
+    <style>
+body {
+    background-color: rgb(224, 255, 193);
+    display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+h1 {
+    background-color: rgb(252, 252, 252);
+    width: 1000px;
+    height: 70px;
+    border-radius: 20px;
+    border-width: thick;
+border-style: solid;
+border-color: rgb(255, 205, 205);
+color: rgb(240, 74, 107);
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 60px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+button {
+    color:  rgb(240, 74, 107);
+    background-color:aliceblue;
+    border-style: solid;
+border-color: rgb(255, 205, 205);
+border-radius: 5px;
+width: 80px;
+height: 40px;
+}
+.add {
+    background-color: rgb(252, 252, 252);
+    width: 1000px;
+    height: 70px;
+    border-radius: 20px;
+    border-width: thick;
+border-style: solid;
+border-color: rgb(255, 205, 205);
+color: rgb(240, 74, 107);
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 20px;
+}
+#ticketList{
+    background-color: rgb(252, 252, 252);
+    width: 950px;
+
+    border-radius: 20px;
+    border-width: thick;
+border-style: solid;
+border-color: rgb(255, 205, 205);
+color: rgb(240, 74, 107);
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 20px;
+}
+.knopka {
+    background-color: rgb(252, 252, 252);
+    width: 1000px;
+height: 40px;
+    border-radius: 20px;
+    border-width: thick;
+border-style: solid;
+border-color: rgb(255, 205, 205);
+color: rgb(240, 74, 107);
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+gap: 20px;
+}
+    </style>
 </head>
 
 <body>
@@ -25,17 +108,18 @@
             <option value="Оборудование">Оборудование</option>
             <option value="Аудитория">Аудитория</option>
             <option value="Другое">Другое</option>
-            <button id="addButton" type="button">Добавить заявку</button>
+        </select>
+        <button id="pushButton">Добавить заявку</button>
     </div>
-    </select>
-    <p id="message"></p>
 
+    <p id="message"></p>
+<div class="knopka">
     <input type="checkbox" id="onlyOpenCheckbox">
     <label for="onlyOpenCheckbox">Только открытые</label>
+</div>
     
     <ul id="ticketList"></ul>
 
-    <button id="pushButton">Добавить заявку</button>
-
+    
 </body>
 </html>
