@@ -8,6 +8,7 @@ const roomInput = document.getElementById('roomInput');
 const categorySelect = document.getElementById('categorySelect');
 const addButton = document.getElementById('addButton');
 const message = document.getElementById('message');
+const pushButton = document.querySelector('#pushButton')
 const ticketList = document.getElementById('ticketList');
 
 function renderTickets() {
@@ -78,6 +79,21 @@ function renderTickets() {
         ticketList.append(empty);
     }
 }
+
+pushButton.addEventListener('click', () => {
+    const nametitle = titleInput.value
+    const roomnum = roomInput.value
+    const categoryname = categorySelect.value
+    if (!nametitle || !roomnum) {
+    return
+    }
+    const newticket = { title: `${nametitle} `, room: `${roomnum} `, category: `${categoryname} `, done: false }
+    tickets.push(newticket)
+    renderTickets()
+    
+    titleInput.value = ''
+    roomInput.value = ''
+    })
 
 renderTickets()
 
